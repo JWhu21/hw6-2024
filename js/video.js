@@ -27,14 +27,16 @@ document.addEventListener('DOMContentLoaded', function() {
     video.loop = false;
 
     // Function to update volume display
-    function updateVolumeDisplay(volume) {
-        volumeDisplay.innerText = Math.round(volume * 100) + '%';
+    function updateVolumeDisplay() {
+	var volumePercentage = Math.round(video.volume * 100); // Calculate percentage
+	volumeDisplay.innerText = volumePercentage + '%'; // Update display
     }
 
     // Play button functionality
     playButton.addEventListener('click', function() {
-        video.play();
-        updateVolumeDisplay(video.volume);
+	// Directly call updateVolumeDisplay to ensure it reflects the current state accurately
+	updateVolumeDisplay();
+	video.play();
     });
 
     // Pause button functionality
