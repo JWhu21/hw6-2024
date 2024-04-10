@@ -35,8 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Play button functionality
     playButton.addEventListener('click', function() {
-        updateVolumeDisplay(); // Ensure the volume display is updated before playing
+        console.log("Play Video");
         video.play();
+        // Update the volume display when the video plays
+        volumeDisplay.innerText = Math.round(video.volume * 100) + '%';
     });
 
     // Pause button functionality
@@ -74,11 +76,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Volume slider functionality
     volumeSlider.addEventListener('input', function() {
-        var sliderValue = volumeSlider.value / 100;
-        video.volume = sliderValue;
-        updateVolumeDisplay(); // Correctly update the display without argument
+        console.log("Changing volume to " + this.value);
+        video.volume = this.value / 100;
+        // Update volume display directly here as well
+        volumeDisplay.innerText = Math.round(video.volume * 100) + '%';
     });
-
+	
     // Old School button functionality
     oldSchoolButton.addEventListener('click', function() {
         video.classList.add('oldSchool');
@@ -90,5 +93,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Initialize volume display on page load
-    updateVolumeDisplay(); // Corrected to call without argument
+    volumeDisplay.innerText = Math.round(video.volume * 100) + '%';
 });
