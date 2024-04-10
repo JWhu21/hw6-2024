@@ -8,6 +8,7 @@ window.addEventListener("load", function() {
 // document.querySelector("#play").addEventListener("click", function() {
 // 	console.log("Play Video");
 // });
+
 document.addEventListener('DOMContentLoaded', function() {
     // Access video and control elements
     var video = document.getElementById('player1');
@@ -28,15 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to update volume display
     function updateVolumeDisplay() {
-	var volumePercentage = Math.round(video.volume * 100); // Calculate percentage
-	volumeDisplay.innerText = volumePercentage + '%'; // Update display
+        var volumePercentage = Math.round(video.volume * 100); // Calculate percentage
+        volumeDisplay.innerText = volumePercentage + '%'; // Update display
     }
 
     // Play button functionality
     playButton.addEventListener('click', function() {
-	// Directly call updateVolumeDisplay to ensure it reflects the current state accurately
-	updateVolumeDisplay();
-	video.play();
+        updateVolumeDisplay(); // Ensure the volume display is updated before playing
+        video.play();
     });
 
     // Pause button functionality
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     volumeSlider.addEventListener('input', function() {
         var sliderValue = volumeSlider.value / 100;
         video.volume = sliderValue;
-        updateVolumeDisplay(sliderValue);
+        updateVolumeDisplay(); // Correctly update the display without argument
     });
 
     // Old School button functionality
@@ -90,5 +90,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Initialize volume display on page load
-    updateVolumeDisplay(video.volume);
+    updateVolumeDisplay(); // Corrected to call without argument
 });
