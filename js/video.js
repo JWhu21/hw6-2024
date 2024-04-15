@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Play button functionality
     playButton.addEventListener('click', function() {
         console.log("Play Video");
-        video.play();
-        updateVolumeDisplay();  // Update the volume display when the video plays
+    	video.play();
+    	updateVolumeInfo();
     });
 
 
