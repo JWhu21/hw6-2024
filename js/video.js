@@ -3,6 +3,13 @@
 // 	console.log("Play Video");
 // });
 
+window.addEventListener("load", function() {
+    console.log("Good job opening the window");
+    video = document.getElementById("player1");
+    video.autoplay = false;
+    video.loop = false;
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     // Access video and control elements
     var video = document.getElementById('player1');
@@ -16,10 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var oldSchoolButton = document.getElementById('vintage');
     var originalButton = document.getElementById('orig');
     var volumeDisplay = document.getElementById('volume');
-
-    // Initialize video properties
-    video.autoplay = false;
-    video.loop = false;
 
     // Function to update volume display
     function updateVolumeDisplay() {
