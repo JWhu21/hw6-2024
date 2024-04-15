@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
     playButton.addEventListener('click', function() {
         console.log("Play Video");
         video.play();
-        // Update the volume display when the video plays
-        volumeDisplay.innerText = Math.round(video.volume * 100) + '%';
+        updateVolumeDisplay();  // Update the volume display when the video plays
     });
+
 
     // Pause button functionality
     pauseButton.addEventListener('click', function() {
